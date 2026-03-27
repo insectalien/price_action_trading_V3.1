@@ -64,11 +64,11 @@ def run_trading_system():
         
         print(f"--- {stock_id} 實驗結束 ---\n")
 
-        # 4. 執行正式報告
+        # 執行正式報告
         print(f"Step 3: Running Final Backtest Report for {stock_id}...")
         stats = bt.run_advanced(take_profit=0.05, stop_loss=0.1)
 
-        # 5. 輸出結果統計
+        # 輸出結果統計
         num_bull = df_analyzed['bull_signal'].sum()
         print(f"Analysis Complete: Found {num_bull} Buy signals for {stock_id}.")
         print(f"\n--- {stock_id} Strategy Performance Report ---")
@@ -77,7 +77,7 @@ def run_trading_system():
         print("-----------------------------------\n")
     
         # 6. 視覺化
-        #logging.info("Step 4: 生成視覺化圖表...")
+        #logging.info("生成視覺化圖表...")
         #plot_signals(df_analyzed)
 
 if __name__ == "__main__":
