@@ -28,17 +28,16 @@ Data Center (數據中樞)：整合 PostgreSQL 高效存儲架構，實現金融
 
 歷史勝率：最高可達 80.00% (依標的特性有所不同)
 
-存檔機制：回測結果自動存入 trading_data.db，支援 SQL 交叉比對。
+存檔機制：整合 PostgreSQL 關聯式資料庫，自動存儲每場回測之勝率、盈虧比與詳細交易日誌，支援高效 SQL 交叉檢索與大數據分析。
 
 📂 專案結構
 ```text
 ├── src/
-│   ├── scanner.py       # [New] 市場熱點掃描雷達
-│   ├── strategy.py      # PA 策略邏輯實現
-│   ├── backtester.py    # 核心回測運算引擎
-│   ├── data_loader.py   # FinMind 數據對接與緩存
-│   └── visualizer.py    # 績效圖表生成
-├── main.py              # 系統總入口 (自動化流程控制)
-├── trading_data.db      # [New] SQLite 回測戰績資料庫
-├── requirements.txt     # 依賴套件清單
-└── README.md
+│   ├── scanner.py       # [New] 市場熱點掃描雷達：即時定位資金流向
+│   ├── strategy.py      # PA 策略邏輯實現：看漲/看跌吞噬形態辨識
+│   ├── backtester.py    # 核心回測運算引擎：支援動態停損/停利邏輯
+│   ├── data_loader.py   # 金融數據對接中心：整合 FinMind API 與自動補全
+│   └── visualizer.py    # 績效圖表生成：自動產出損益分析報告
+├── main.py              # 系統總入口：自動化流程控制與 PostgreSQL 整合
+├── requirements.txt     # 依賴套件清單：確保開發環境一致性
+└── README.md            # 專案說明文件
