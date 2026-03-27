@@ -84,4 +84,4 @@ if __name__ == "__main__":
     try:
         run_trading_system()
     except Exception as e:
-        logging.error(f"❌ 程式執行發生錯誤：{e}", exc_info=True)  # 紀錄錯誤細節
+        logging.error(f"❌ 程式執行發生錯誤：{e}", exc_info=True)  # 紀錄錯誤細節 
