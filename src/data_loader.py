@@ -18,11 +18,11 @@ def get_multiple_data(stock_list):
         try:
             # 1. 嘗試從 SQL 讀取
             df = pd.read_sql(f"SELECT * FROM {table_name}", engine)
-            print(f"✅ {stock_id}: 從 SQL 讀取成功")
+            print(f"{stock_id}: 從 SQL 讀取成功")
         
         except Exception:
             # 2. SQL 沒資料，抓 API
-            print(f"🚀 {stock_id}: 資料庫無紀錄，開始從 API 抓取...")
+            print(f"{stock_id}: 資料庫無紀錄，開始從 API 抓取...")
             url = "https://api.finmindtrade.com/api/v4/data"
             parameter = {
                 "dataset": "TaiwanStockPrice",
@@ -35,7 +35,7 @@ def get_multiple_data(stock_list):
             
             # 3. 存入 SQL
             df.to_sql(table_name, engine, if_exists='replace', index=False)
-            print(f"💾 {stock_id}: 已成功存入 SQL 表格 {table_name}")
+            print(f"{stock_id}: 已成功存入 SQL 表格 {table_name}")
             
             # 減少抓 API 速度，避免被封鎖
             time.sleep(1) 
